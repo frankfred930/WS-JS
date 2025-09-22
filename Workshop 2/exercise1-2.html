@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Workshop 02</title>
+</head>
+<body>
+  <h2>Workshop 02</h2>
+
+  <script>
+    document.write(
+      '<p><b><em>"If I had nine hours to chop down a tree, I\'d spend the first six sharpening my ax."</em></b></p>' +
+      '<p>-- Abraham Lincoln</p>'
+    );
+  </script>
+
+  <script>
+    function repeatingText() {
+      
+      let count = prompt("Kuinka monta kertaa teksti toistetaan?", 50);
+
+      count = parseInt(count);
+      if (isNaN(count) || count <= 0) {
+        count = 50;
+      }
+
+      for (let i = 1; i <= count; i++) {
+        document.write("Tämä on toistuva teksti (" + i + ")<br>");
+      }
+    }
+
+    repeatingText();
+  </script>
+</body>
+</html>

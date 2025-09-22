@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 3</title>
+  <script>
+    window.onload = function () {
+      let browser = navigator.userAgent.toLowerCase();
+
+      if (browser.indexOf("mozilla") > -1) {
+        window.location.href = "http://www.mozilla.org";
+      } else {
+        window.location.href = "https://www.google.com";
+      }
+    };
+  </script>
+</head>
+<body>
+  <h2>Exercise 3</h2>
+  <p>If your browser is Mozilla-based, you will be redirected to Mozilla's website. Otherwise, you will be redirected to Google.</p>  
+</body>
+</html>
