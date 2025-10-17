@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Workshop 4</title>
+</head>
+<body class="ws4">
+    <h1 id="mainHeading">Workshop 4: DOM Scripting</h1>
+    
+
+    <h2 id="exercise1">Exercise 1: Basic DOM Manipulation</h2>
+    <p>
+      <button onclick="changeHeading()">Button 1</button>
+      <button onclick="changeExercise2Style()">Button 2</button>
+      <button onclick="appendLorem()">Button 3</button>
+    </p>
+
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <p>Paragraph 3</p>
+    <p>Paragraph 4</p>
+
+    <hr/>
+    <h2 id="exercise2">Exercise 2: DOM Traversing using ID's and classes</h2>
+   
+    <p>
+        <label>
+            <input onchange="hideMe()" type="checkbox" id="CheckboxGroup1_0"> Hide me
+        </label><br>
+        <label>
+            <input type="checkbox" id="CheckboxGroup1_1"> Show me
+        </label><br>
+        <label>
+            <input type="checkbox" id="CheckboxGroup1_2"> <span id="surprise">Surprise</span>
+        </label>
+    </p>
+    <div id="me">Hide this content!</div>
+
+
+    <hr/>
+    <h2>Exercise 3: Images and pulldowns</h2>
+    <p>Select a new car from the list.</p>
+    <select id="mySelect" onchange="carSelectChange()">
+        <option value="BMW">BMW</option>
+        <option value="Audi">Audi</option>
+        <option value="Mercedes">Mercedes</option>
+        <option value="Volvo">Volvo</option>
+    </select>
+    <br><br>
+    <img src="https://www.bmw.fi/content/dam/bmw/common/all-models/m-series/m8-coupe/2022/navigation/bmw-8series-coupe-modellfinder.png"
+        id="carimage" width="400" onmouseover="highlightImg()" onmouseout="unhighlightImg()">
+
+
+    <hr/>
+    <h2>Exercise 4: Moving things around</h2>
+    <button onclick="moveCar()">Move!</button>
+    <button onclick="startAnimation()">Animate</button>
+    <button onclick="startFadeOut()">Fade out!</button>
+    <button onclick="removeCar()">Disappear!</button>
+
+
+    <hr/>
+    <h2>Exercise 5: Tables</h2>
+    <table id="data" border="1">
+        <thead>
+            <tr><th>Name</th><th>Position</th><th>Salary</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Tiger Nixon</td><td>System Architect</td><td>$320,800</td></tr>
+            <tr><td>Garrett Winters</td><td>Accountant</td><td>$170,750</td></tr>
+            <tr><td>Ashton Cox</td><td>Junior Technical Author</td><td>$86,000</td></tr>
+            <tr><td>Cedric Kelly</td><td>Senior Javascript Developer</td><td>$433,060</td></tr>
+            <tr><td>Airi Satou</td><td>Accountant</td><td>$162,700</td></tr>
+        </tbody>
+    </table>
+    <p>
+        Name: <input type="text" id="textfield"><br>
+        Position: <input type="text" id="textfield2"><br>
+        Salary: <input type="text" id="textfield3"><br>
+        <input type="button" value="Insert" onclick="insertRows()">
+    </p>
+
+
+    <hr/>
+
+    <script>
+
+        function changeHeading() {
+            document.getElementById("mainHeading").innerHTML = "Modified Heading!";
+        }
+        function changeExercise2Style() {
+            let h2 = document.getElementById("exercise2");
+            h2.style.fontSize = "30px";
+            h2.style.fontStyle = "italic";
+            h2.style.color = "blue";
+            h2.style.backgroundColor = "yellow";
+        }
+        function appendLorem() {
+            const newPara = document.createElement("p");
+            newPara.innerHTML = '<em>"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit."</em>';
+            const paras = document.querySelectorAll("p");
+            if(paras.length >= 4){
+                paras[3].parentNode.insertBefore(newPara, paras[3].nextSibling);
+            }
+            document.body.style.backgroundColor = "#e0e0e0";
+            const img = document.createElement("img");
+            img.src = "https://via.placeholder.com/100";
+            newPara.appendChild(document.createElement("br"));
+            newPara.appendChild(img);
+        }
+
+
+        function hideMe() {
+            document.getElementById("me").style.display = "none";
+        }
+        document.getElementById("CheckboxGroup1_1").addEventListener("change", function() {
+            document.getElementById("me").style.display = "block";
+        });
+        document.getElementById("CheckboxGroup1_2").addEventListener("change", function() {
+            let surprises = document.getElementsByClassName("surprise");
+            for(let i=0;i<surprises.length;i++){
+                surprises[i].style.fontSize = "20px";
+            }
+        });
+
+  
+        function carSelectChange() {
+            let select = document.getElementById("mySelect");
+            alert("You selected: " + select.value);
+            let img = document.getElementById("carimage");
+            switch(select.value){
+                case "BMW": img.src="https://www.bmw.fi/content/dam/bmw/common/all-models/m-series/m8-coupe/2022/navigation/bmw-8series-coupe-modellfinder.png"; break;
+                case "Audi": img.src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Audi_logo.png"; break;
+                case "Mercedes": img.src="https://upload.wikimedia.org/wikipedia/commons/9/90/Mercedes-Logo.png"; break;
+                case "Volvo": img.src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Volvo_Iron_Mark.svg"; break;
+            }
+        }
+        function highlightImg(){ document.getElementById("carimage").style.border="3px solid red";}
+        function unhighlightImg(){ document.getElementById("carimage").style.border="none";}
+
+ 
+        function moveCar(){
+            let img = document.getElementById("carimage");
+            img.style.position = "relative";
+            img.style.left = "200px";
+            img.style.top = "500px";
+        }
+        let pos = 0, direction = 1;
+        function doMove(){
+            let img = document.getElementById("carimage");
+            img.style.position = "relative";
+            pos += 10 * direction;
+            img.style.left = pos + "px";
+            if(pos > 200 || pos < 0) direction *= -1;
+        }
+        function startAnimation(){
+            setInterval(doMove, 1000);
+        }
+        function fadeOut(){
+            let img = document.getElementById("carimage");
+            let op = parseFloat(img.style.opacity) || 1;
+            if(op > 0) img.style.opacity = op - 0.1;
+        }
+        function startFadeOut(){ setInterval(fadeOut, 250);}
+        function removeCar(){ document.getElementById("carimage").remove(); }
+
+        function insertRows(){
+            let table = document.getElementById("data").getElementsByTagName("tbody")[0];
+            let newRow = table.insertRow();
+            newRow.insertCell(0).innerText = document.getElementById("textfield").value || "Default Name";
+            newRow.insertCell(1).innerText = document.getElementById("textfield2").value || "Default Position";
+            newRow.insertCell(2).innerText = document.getElementById("textfield3").value || "$0";
+        }
+
+
+        function replaceLi(){
+            let lis = document.getElementsByTagName("li");
+            for(let li of lis){
+                li.innerHTML = "<strong style='color:red;'>Replaced</strong>";
+            }
+        }
+    </script>
+</body>
+</html>
