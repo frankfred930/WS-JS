@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Workshop 6</title>
+</head>
+<body class="ws6" onload="loadData()">
+    <h1>Workshop 6: Using LocalStorage</h1>
+    <hr />
+    <h2>Exercise 1: Saving the entered data</h2>
+    <div>
+        <label for="destination">Destination:</label>
+        <input type="text" name="textfield" id="destination">
+    </div>
+    <div>
+        <label for="arrival">Arrival Date:</label>
+        <input type="text" name="textfield" id="arrival">
+    </div>
+    <div id="services" class="border">
+        <p>Services:</p>
+        <div><label><input type="checkbox" name="CheckboxGroup1" value="Internet" id="CheckboxGroup1_0">Internet</label></div>
+        <div><label><input type="checkbox" name="CheckboxGroup1" value="AC" id="CheckboxGroup1_1">Air Conditioning</label></div>
+        <div><label><input type="checkbox" name="CheckboxGroup1" value="minibar" id="CheckboxGroup1_2">Minibar</label></div>
+        <div><label><input type="checkbox" name="CheckboxGroup1" value="car" id="CheckboxGroup1_3">Car rent</label></div>
+        <div><label><input type="checkbox" name="CheckboxGroup1" value="sauna" id="CheckboxGroup1_4">Sauna</label></div>
+    </div>
+    <div class="clear">
+        <input type="button" id="button" value="Reserve" onclick="getData()">
+    </div>
+
+    <hr/>
+    <div>
+        <h2>Exercise 2: Reloading the saved data</h2>
+        <div id="sessiondata">Session data goes here!</div>
+    </div>
+
+    <hr/>
+    <script src="js/script.js"></script>
+</body>
+</html>
