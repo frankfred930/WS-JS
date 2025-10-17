@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Workshop 5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h1>Workshop 5: Smart Forms</h1>
+    <h2>Exercise 1: Contact Form</h2>
+    <form name="contactForm" id="contactForm">
+        <div>
+            <label>Email address:<br>
+                <input type="text" name="email">
+            </label>
+        </div>
+        <div>
+            <label>Comment:<br>
+                <textarea name="comment"></textarea>
+            </label>
+        </div>
+        <br>
+        <input type="submit" value="Send">
+    </form>
+
+    <hr />
+    <h2>Exercise 2: Membership Calculator</h2>
+    <form id="membershipForm">
+        <fieldset>
+            <legend>Create Your Membership</legend>
+            <div>
+                <label for="type">Type</label>
+                <select name="type" id="type" required>
+                    <option value="basic">Basic - $10.00</option>
+                    <option value="premium">Premium - $15.00</option>
+                    <option value="gold">Gold - $20.00</option>
+                    <option value="platinum">Platinum - $25.00</option>
+                </select>
+            </div>
+            <div>
+                <label for="years">Years</label>
+                <input type="number" name="years" id="years" min="1" required>
+            </div>
+            <div>
+                <label for="cost">Cost</label>
+                <input type="text" name="cost" id="cost" disabled>
+            </div>
+            <input type="submit" value="Calculate">
+        </fieldset>
+    </form>
+
+    <hr />
+    <h2>Exercise 3: Book Order</h2>
+    <fieldset>
+        <p>Calculate a bulk book order.</p>
+        <div>
+            <label for="quantity">Quantity</label>
+            <input type="number" name="quantity" id="quantity" value="1" min="1" required>
+        </div>
+        <div>
+            <label for="price">Price Per Unit</label>
+            <input type="text" name="price" id="price" value="1.00" required>
+        </div>
+        <div>
+            <label for="tax">VAT (%)</label>
+            <input type="text" name="tax" id="tax" value="0.0" required>
+        </div>
+        <div>
+            <label for="discount">Discount</label>
+            <input type="text" name="discount" id="discount" value="0.00" required>
+        </div>
+        <div>
+            <label for="total">Total</label>
+            <input type="text" name="total" id="total" value="0.00" readonly>
+        </div>
+        <div>
+            <input type="button" value="Calculate" id="submit-calculate">
+        </div>
+    </fieldset>
+
+    <hr />
+    <h2>Exercise 4: Hidden Extra Fields</h2>
+    <p>Choose a preferred contact method to see extra input fields:</p>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
