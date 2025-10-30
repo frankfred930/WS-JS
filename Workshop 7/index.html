@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<HTML lang="en">
+	<head>
+		<title>Workshop 7</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/styles.css">
+	</head>
+	<body class="ws7">
+		<h1>Workshop 7: Using AJAX and parsing XML</h1>
+		<hr />
+		<h2>Exercise 1: Parsing XML data </h2>
+		
+		<input type="button" name="Fetch" id="Fetch" value="Parse Embedded XML" onclick="parseData()">
+		<div id="exercise1-output"></div>
+		<pre>
+			<!-- THIS IS HERE ONLY FOR DISPLAYing THE STRUCTURE OF THE XML DATA IN THE BROWSER -->
+			&lt;quotes&gt;
+				&lt;quote&gt;I&#39;m not concerned about all hell breaking loose, but that a PART of hell will break loose... it&#39;ll be much harder to detect.&lt;/quote&gt;
+				&lt;length&gt;124&lt;/length&gt;
+				&lt;author&gt;George Carlin&lt;/author&gt;
+				&lt;/quotes&gt;
+				&lt;quotes&gt;
+				&lt;quote&gt;The biggest problem with every art is by the use of appearance to create a loftier reality. &lt;/quote&gt;
+				&lt;author&gt;Johann Wolfgang von Goethe&lt;/author&gt;
+			&lt;/quotes&gt;
+
+			<!-- END -->
+
+			<!-- THIS IS THE START OF XML DATA -->
+		</pre>
+		<quotes>
+			<quote>I'm not concerned about all hell breaking loose, but that a PART of hell will break loose... it'll be much harder to detect.</quote>
+			<length>124</length>
+			<author>George Carlin</author>
+		</quotes>
+		<quotes>
+			<quote>The biggest problem with every art is by the use of appearance to create a loftier reality. </quote>
+			<author>Johann Wolfgang von Goethe</author>
+		</quotes>
+		<!-- THIS IS THE END  OF XML DATA -->
+		<hr/>
+		<h2>Exercise 2: AJAX call to an XML file </h2>
+		<input type="button" name="Fetch2" id="Fetch2" value="Load XML File" onclick="loadXMLFile()">
+		</p>
+		<div id="quotes"></div>
+		<p>&nbsp;</p>
+		<hr/>
+		<h2>Exercise 3: Parsing the XML</h2>
+		
+		<p>
+			<input type="button" name="Fetch3" id="Fetch3" value="Load and Parse XML" onclick="loadAndParseXML()">
+		</p>
+		<div id="tabledata">
+			<table>
+				<tbody>
+					<tr>
+						<td><strong>Quote</strong></td>
+						<td><strong>Author</strong></td>
+					</tr>
+					<tr>
+						<td>Here goes the quote data</td>
+						<td>Here goes the author data</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p><br>
+		</p>
+		<hr/>
+		<h2>Exercise   4: AJAX call to a live newsfeed</h2>
+		<input type="button" name="Fetch3" id="Fetch3b" value="Load YAHOO newsfeed" onclick="loadAndParseNews('https://meijastiina.github.io/news_rss_topstories.xml')">
+		<input type="button" name="Fetch3" id="Fetch3c" value="Load Iltalehti Newsfeed" onclick="loadAndParseNews('http://www.iltalehti.fi/rss/uutiset.xml')">
+		<div id="newsfeed">
+		</div>
+
+		<script src="js/script.js"></script>
+	</body>
+</html>
