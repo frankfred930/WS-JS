@@ -42,3 +42,7 @@ Sovellus on rakennettu kolmesta pääkomponentista:
 - GitHub Copilot – Fixes & Recommendations
 - ChatGPT - Recommendations
 - WebDevSimplified Tutorials
+
+## License
+
+No license (School Project)
